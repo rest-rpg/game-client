@@ -1,7 +1,7 @@
 import {
   AdventureCreateRequest,
   AdventureDetails,
-} from "../../../generated-sources/openapi";
+} from "../../../generated-sources/openapi/game";
 import { Box, Skeleton } from "@chakra-ui/react";
 import useAdventureService from "../../../services/useAdventureService";
 import AdventureForm from "./AdventureForm";

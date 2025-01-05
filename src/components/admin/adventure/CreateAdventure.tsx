@@ -1,4 +1,4 @@
-import { AdventureCreateRequest } from "../../../generated-sources/openapi";
+import { AdventureCreateRequest } from "../../../generated-sources/openapi/game";
 import { Box } from "@chakra-ui/react";
 import useAdventureService from "../../../services/useAdventureService";
 import AdventureForm from "./AdventureForm";

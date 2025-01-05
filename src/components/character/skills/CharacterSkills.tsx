@@ -19,7 +19,7 @@ import useSkillService from "../../../services/useSkillService";
 import {
   CharacterSkillBasics,
   SkillBasicPage,
-} from "../../../generated-sources/openapi";
+} from "../../../generated-sources/openapi/game";
 import { useStores } from "../../../store/RootStore";
 import useCharacterService from "../../../services/useCharacterService";
 import Pagination from "../../tables/Pagination";

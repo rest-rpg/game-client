@@ -6,14 +6,14 @@ import { useTranslation } from "react-i18next";
 import { AxiosError } from "axios";
 import {
   CharacterSkillBasics,
-  DefaultApiFp,
+  SkillApiFp,
   SkillBasicPage,
   SkillCreateRequest,
   SkillDetails,
   SkillLite,
   SkillLites,
   SkillSearchRequest,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import useServiceHelper from "./helpers/useServiceHelper";
 
@@ -23,7 +23,7 @@ const useSkillService = () => {
   const successToast = useSuccessToast();
   const { t } = useTranslation();
   const axiosPrivate = useAxiosPrivate();
-  const api = DefaultApiFp();
+  const api = SkillApiFp();
   const { getResources } = useServiceHelper();
 
   const create = async (request: SkillCreateRequest): Promise<SkillLite> => {

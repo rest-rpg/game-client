@@ -10,8 +10,8 @@ import {
   AdventureDetails,
   AdventureLite,
   AdventureSearchRequest,
-  DefaultApiFp,
-} from "../generated-sources/openapi";
+  AdventureApiFp,
+} from "../generated-sources/openapi/game";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import useServiceHelper from "./helpers/useServiceHelper";
 import { useStores } from "../store/RootStore";
@@ -22,7 +22,7 @@ const useAdventureService = () => {
   const successToast = useSuccessToast();
   const { t } = useTranslation();
   const axiosPrivate = useAxiosPrivate();
-  const api = DefaultApiFp();
+  const api = AdventureApiFp();
   const { getResources } = useServiceHelper();
   const { characterStore } = useStores();
 

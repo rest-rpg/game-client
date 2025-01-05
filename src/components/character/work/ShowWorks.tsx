@@ -16,7 +16,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import useWorkService from "../../../services/useWorkService";
-import { WorkLitePage } from "../../../generated-sources/openapi";
+import { WorkLitePage } from "../../../generated-sources/openapi/game";
 import { useStores } from "../../../store/RootStore";
 import useCharacterService from "../../../services/useCharacterService";
 import { secondsToTime } from "../../../helpers/DateHelper";

@@ -5,12 +5,12 @@ import { Error } from "../classes/error/Error";
 import { useTranslation } from "react-i18next";
 import { AxiosError } from "axios";
 import {
-  DefaultApiFp,
+  ItemApiFp,
   ItemCreateRequest,
   ItemLite,
   ItemLitePage,
   ItemSearchRequest,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import useServiceHelper from "./helpers/useServiceHelper";
 import { useStores } from "../store/RootStore";
@@ -21,7 +21,7 @@ const useEquipmentService = () => {
   const successToast = useSuccessToast();
   const { t } = useTranslation();
   const axiosPrivate = useAxiosPrivate();
-  const api = DefaultApiFp();
+  const api = ItemApiFp();
   const { getResources } = useServiceHelper();
   const { statisticsStore, equipmentStore } = useStores();
 

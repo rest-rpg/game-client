@@ -12,7 +12,7 @@ import {
   Skeleton,
   Button,
 } from "@chakra-ui/react";
-import { AdventureBasicPage } from "../../../generated-sources/openapi";
+import { AdventureBasicPage } from "../../../generated-sources/openapi/game";
 import useAdventureService from "../../../services/useAdventureService";
 import Pagination from "../../tables/Pagination";
 import { useTranslation } from "react-i18next";

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import {
   ElementAction,
   FightActionRequest,
-} from "../../../generated-sources/openapi";
+} from "../../../generated-sources/openapi/game";
 import { Box, Button, Flex, Text, Tooltip } from "@chakra-ui/react";
 import useCharacterService from "../../../services/useCharacterService";
 import { useStores } from "../../../store/RootStore";

@@ -6,10 +6,10 @@ import { Error } from "../classes/error/Error";
 import { useTranslation } from "react-i18next";
 import { AxiosError } from "axios";
 import {
-  DefaultApiFp,
+  EnemyApiFp,
   EnemyCreateRequest,
   EnemyLites,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import useServiceHelper from "./helpers/useServiceHelper";
 
@@ -20,7 +20,7 @@ const useEnemyService = () => {
   const { enemyStore } = useStores();
   const { t } = useTranslation();
   const axiosPrivate = useAxiosPrivate();
-  const api = DefaultApiFp();
+  const api = EnemyApiFp();
   const { getResources } = useServiceHelper();
 
   const create = async (request: EnemyCreateRequest) => {

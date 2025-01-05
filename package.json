@@ -1,22 +1,22 @@
 {
   "name": "game_client",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "codegen": "rm -rf src/generated-sources/openapi; openapi-generator-cli generate -i ../game/src/main/resources/api.yml -o src/generated-sources/openapi -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true",
-    "codegen-win": "if exist src\\generated-sources\\openapi rmdir /s /q src\\generated-sources\\openapi && openapi-generator-cli generate -i ..\\game\\src\\main\\resources\\api.yml -o src\\generated-sources\\openapi -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true"
+    "codegen": "rm -rf src/generated-sources/openapi; openapi-generator-cli generate -i ../game/src/main/resources/api.yml -o src/generated-sources/openapi/game -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true; openapi-generator-cli generate -i ../user/user-service/src/main/resources/api.yml -o src/generated-sources/openapi/user -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true; openapi-generator-cli generate -i ../auth/auth-service/src/main/resources/api.yml -o src/generated-sources/openapi/auth -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true",
+    "codegen-win": "if exist src\\generated-sources\\openapi rmdir /s /q src\\generated-sources\\openapi && openapi-generator-cli generate -i ..\\game\\src\\main\\resources\\api.yml -o src\\generated-sources\\openapi\\game -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true && openapi-generator-cli generate -i ..\\user\\user-service\\src\\main\\resources\\api.yml -o src\\generated-sources\\openapi\\user -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true && openapi-generator-cli generate -i ..\\auth\\auth-service\\src\\main\\resources\\api.yml -o src\\generated-sources\\openapi\\auth -g typescript-axios --additional-properties=supportsES6=true,npmVersion=6.9.0,typescriptThreePlus=true"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@openapitools/openapi-generator-cli": "^2.7.0",
+    "@openapitools/openapi-generator-cli": "^7.10.0",
     "axios": "^1.4.0",
     "formik": "^2.4.3",
     "framer-motion": "^10.15.0",

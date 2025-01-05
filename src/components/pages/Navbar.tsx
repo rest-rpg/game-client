@@ -17,8 +17,8 @@ import { observer } from "mobx-react";
 import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { MdLanguage } from "react-icons/md";
-import useLogout from "../../hooks/useLogout";
 import CharactersPopover from "../character/CharactersPopover";
+import useRefreshTokenService from "../../services/useRefreshTokenService";
 
 interface Language {
   nativeName: string;
@@ -37,7 +37,7 @@ const Navbar = observer(() => {
   const [logged, setLogged] = useState("");
   const { authStore } = useStores();
   const { t, i18n } = useTranslation();
-  const logout = useLogout();
+  const refreshTokenService = useRefreshTokenService();
 
   useEffect(() => {
     setLogged(authStore.role?.toUpperCase());
@@ -106,7 +106,7 @@ const Navbar = observer(() => {
             </>
           )}
           {logged && (
-            <Button variant="link" onClick={() => logout()}>
+            <Button variant="link" onClick={() => refreshTokenService.logout()}>
               {t("AUTH.LOGOUT")}
             </Button>
           )}

@@ -19,7 +19,7 @@ import useCharacterService, {
   THUMBNAIL_URL,
 } from "../../services/useCharacterService";
 import { useTranslation } from "react-i18next";
-import { CharacterBasics } from "../../generated-sources/openapi";
+import { CharacterBasics } from "../../generated-sources/openapi/game";
 import { Link } from "react-router-dom";
 
 const CharactersPopover = () => {

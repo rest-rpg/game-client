@@ -4,7 +4,7 @@ import {
   CharacterDetails,
   CharacterLite,
   SkillDetails,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 import { dateToSeconds } from "../helpers/DateHelper";
 
 export class CharacterStore {

@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { ItemType } from "../../generated-sources/openapi";
+import { ItemType } from "../../generated-sources/openapi/game";
 
 export const itemTypes = Object.values(ItemType);
 

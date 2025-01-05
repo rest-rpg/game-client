@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import RootStore from "./RootStore";
-import { EnemyBasic, EnemyLite } from "../generated-sources/openapi";
+import { EnemyBasic, EnemyLite } from "../generated-sources/openapi/game";
 
 export class EnemyStore {
   private _id = 0;

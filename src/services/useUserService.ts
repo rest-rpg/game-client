@@ -1,37 +1,30 @@
 import { useState } from "react";
 import useErrorToast from "../hooks/useErrorToast";
-import { useStores } from "../store/RootStore";
 import useSuccessToast from "../hooks/useSuccessToast";
 import { Error } from "../classes/error/Error";
 import { useTranslation } from "react-i18next";
-import { AxiosError } from "axios";
-import {
-  AuthenticationApiFp,
-  AuthenticationRequest,
-} from "../generated-sources/openapi/auth";
-import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import { AxiosError } from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import { RegisterRequest, UserApiFp } from "../generated-sources/openapi/user";
 
-const useAuthService = () => {
+const useUserService = () => {
   const [isLoading, setIsLoading] = useState(false);
   const errorToast = useErrorToast();
   const successToast = useSuccessToast();
-  const { authStore } = useStores();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const api = AuthenticationApiFp();
+  const axiosPrivate = useAxiosPrivate();
+  const api = UserApiFp();
 
-  const authenticate = async (request: AuthenticationRequest) => {
+  const register = async (request: RegisterRequest) => {
     setIsLoading(true);
-    const authenticate = await api.authenticate(request, {
-      withCredentials: true,
-    });
+    const register = await api.register(request);
 
-    authenticate(axios)
-      .then((response) => {
-        authStore.auth(response.data);
-        successToast(t("AUTH.LOGIN_SUCCESSFUL"));
-        navigate("/home");
+    register(axiosPrivate)
+      .then(() => {
+        successToast(t("AUTH.REGISTRATION_SUCCESSFUL"));
+        navigate("/login");
       })
       .catch((err: AxiosError) => {
         if (err.response?.data) {
@@ -46,8 +39,8 @@ const useAuthService = () => {
 
   return {
     isLoading,
-    authenticate,
+    register,
   };
 };
 
-export default useAuthService;
+export default useUserService;

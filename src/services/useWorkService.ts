@@ -1,16 +1,16 @@
 import { useState } from "react";
 import {
-  DefaultApiFp,
+  WorkApiFp,
   WorkCreateRequest,
   WorkLite,
   WorkLitePage,
   WorkSearchRequest,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 import useServiceHelper from "./helpers/useServiceHelper";
 
 const useWorkService = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const api = DefaultApiFp();
+  const api = WorkApiFp();
   const { getResources } = useServiceHelper();
 
   const createWork = async (

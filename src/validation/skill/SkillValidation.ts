@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { SkillEffect, SkillType } from "../../generated-sources/openapi";
+import { SkillEffect, SkillType } from "../../generated-sources/openapi/game";
 import { classes } from "../character/CharacterValidation";
 
 export const skillTypes = Object.values(SkillType);

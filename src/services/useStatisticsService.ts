@@ -1,16 +1,16 @@
 import { useState } from "react";
 import {
-  DefaultApiFp,
+  StatisticsApiFp,
   StatisticsDetails,
   StatisticsUpdateRequest,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 import useServiceHelper from "./helpers/useServiceHelper";
 import { useStores } from "../store/RootStore";
 
 const useStatisticsService = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { statisticsStore } = useStores();
-  const api = DefaultApiFp();
+  const api = StatisticsApiFp();
   const { getResources } = useServiceHelper();
 
   const getStatistics = async (
@@ -47,10 +47,22 @@ const useStatisticsService = () => {
       .catch((e) => console.log(e));
   };
 
+  const getCharacterStatistics = async (
+    characterId: number
+  ): Promise<StatisticsDetails | undefined> => {
+    setIsLoading(true);
+    const getStatistics = await api.getStatistics(characterId, {
+      withCredentials: true,
+    });
+
+    return getResources(getStatistics, setIsLoading);
+  };
+
   return {
     isLoading,
     getStatistics,
     trainCharacter,
+    getCharacterStatistics,
   };
 };
 

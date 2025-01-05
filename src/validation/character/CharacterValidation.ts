@@ -3,7 +3,7 @@ import {
   CharacterClass,
   CharacterRace,
   CharacterSex,
-} from "../../generated-sources/openapi";
+} from "../../generated-sources/openapi/game";
 
 export const races = Object.values(CharacterRace);
 export const sexes = Object.values(CharacterSex);

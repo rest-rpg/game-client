@@ -1,4 +1,4 @@
-import { SkillCreateRequest } from "../../../generated-sources/openapi";
+import { SkillCreateRequest } from "../../../generated-sources/openapi/game";
 import { useTranslation } from "react-i18next";
 import { useFormik } from "formik";
 import { Box, Button, Flex, HStack, Heading } from "@chakra-ui/react";

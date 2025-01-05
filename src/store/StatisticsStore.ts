@@ -3,7 +3,7 @@ import RootStore from "./RootStore";
 import {
   StatisticsDetails,
   StatisticsLite,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 
 export class StatisticsStore {
   private _maxHp = 100;

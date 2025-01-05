@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { DefaultApiFp, FightActionRequest } from "../generated-sources/openapi";
+import {
+  FightApiFp,
+  FightActionRequest,
+} from "../generated-sources/openapi/game";
 import useServiceHelper from "./helpers/useServiceHelper";
 import { useStores } from "../store/RootStore";
 
 const useFightService = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const api = DefaultApiFp();
+  const api = FightApiFp();
   const { getResources } = useServiceHelper();
   const { fightStore } = useStores();
 

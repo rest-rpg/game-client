@@ -1,12 +1,11 @@
 import { Box, Button, Flex, Skeleton, Spacer, VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useStores } from "../../../store/RootStore";
-import useCharacterService from "../../../services/useCharacterService";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useFormik } from "formik";
 import { StatisticsUpdateSchema } from "../../../validation/statistics/StatisticsValidation";
-import { StatisticsUpdateRequest } from "../../../generated-sources/openapi";
+import { StatisticsUpdateRequest } from "../../../generated-sources/openapi/game";
 import useStatisticsService from "../../../services/useStatisticsService";
 import FormikInput from "../../forms/FormikInput";
 
@@ -29,7 +28,7 @@ export const Statistic = ({ name, value }: StatisticProps) => {
 
 const CharacterStatistics = () => {
   const { statisticsStore } = useStores();
-  const { getCharacterStatistics, isLoading } = useCharacterService();
+  const { getCharacterStatistics, isLoading } = useStatisticsService();
   const { characterId } = useParams();
   const { t } = useTranslation();
   const statisticsService = useStatisticsService();

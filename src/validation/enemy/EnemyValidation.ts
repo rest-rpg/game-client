@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { ElementAction, ElementEvent } from "../../generated-sources/openapi";
+import { ElementAction, ElementEvent } from "../../generated-sources/openapi/game";
 
 export const strategyActions = Object.values(ElementAction);
 export const strategyEvents = Object.values(ElementEvent);

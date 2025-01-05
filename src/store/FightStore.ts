@@ -5,7 +5,7 @@ import {
   FightActionResponse,
   FightDetails,
   FightEffectLite,
-} from "../generated-sources/openapi";
+} from "../generated-sources/openapi/game";
 
 interface FightInfo {
   enemyHit?: boolean;

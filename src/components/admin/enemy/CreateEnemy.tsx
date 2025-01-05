@@ -4,7 +4,7 @@ import {
   EnemyCreateRequest,
   SkillLites,
   StrategyElementCreateRequest,
-} from "../../../generated-sources/openapi";
+} from "../../../generated-sources/openapi/game";
 import { useTranslation } from "react-i18next";
 import {
   EnemyCreateSchema,

@@ -8,14 +8,13 @@ import { AxiosError } from "axios";
 import {
   CharacterBasics,
   CharacterCreateRequest,
-  DefaultApiFp,
-  StatisticsDetails,
-} from "../generated-sources/openapi";
+  CharacterApiFp,
+} from "../generated-sources/openapi/game";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { BASE_URL } from "../api/axios";
 import useServiceHelper from "./helpers/useServiceHelper";
 
-export const THUMBNAIL_URL = BASE_URL + "/character/thumbnail";
+export const THUMBNAIL_URL = BASE_URL + "/game/character/thumbnail";
 
 const useCharacterService = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +24,7 @@ const useCharacterService = () => {
   const { t } = useTranslation();
   const axiosPrivate = useAxiosPrivate();
   const { getResources } = useServiceHelper();
-  const api = DefaultApiFp();
+  const api = CharacterApiFp();
 
   const create = async (request: CharacterCreateRequest) => {
     setIsLoading(true);
@@ -96,24 +95,12 @@ const useCharacterService = () => {
       .catch((e) => console.log(e));
   };
 
-  const getCharacterStatistics = async (
-    characterId: number
-  ): Promise<StatisticsDetails | undefined> => {
-    setIsLoading(true);
-    const getStatistics = await api.getStatistics(characterId, {
-      withCredentials: true,
-    });
-
-    return getResources(getStatistics, setIsLoading);
-  };
-
   return {
     isLoading,
     create,
     getUserCharacters,
     getUserCharacter,
     getArtworksEnum,
-    getCharacterStatistics,
   };
 };
 

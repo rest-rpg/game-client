@@ -14,14 +14,14 @@ import { Form, Formik } from "formik";
 import { RegisterSchema } from "../../validation/auth/AuthValidation";
 import { RegisterRequest } from "../../classes/auth/Auth";
 import { useTranslation } from "react-i18next";
-import useAuthService from "../../services/useAuthService";
+import useUserService from "../../services/useUserService";
 
 const Register = () => {
   const { t } = useTranslation();
-  const authService = useAuthService();
+  const userService = useUserService();
 
   const handleSubmit = async (values: RegisterRequest) => {
-    await authService.register(values);
+    await userService.register(values);
   };
 
   return (
@@ -104,7 +104,7 @@ const Register = () => {
               <Button
                 mt={4}
                 colorScheme="teal"
-                isLoading={authService.isLoading}
+                isLoading={userService.isLoading}
                 type="submit"
               >
                 {t("AUTH.REGISTER")}

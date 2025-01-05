@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import RootStore from "./RootStore";
-import { EquipmentDetails, ItemLite } from "../generated-sources/openapi";
+import { EquipmentDetails, ItemLite } from "../generated-sources/openapi/game";
 
 export class EquipmentStore {
   private _id = 0;
-  private _gold = "";
+  private _gold = 0;
   private _healthPotions = 0;
   private _armor?: ItemLite = undefined;
   private _weapon?: ItemLite = undefined;
@@ -22,7 +22,7 @@ export class EquipmentStore {
     return this._gold;
   }
 
-  set gold(val: string) {
+  set gold(val: number) {
     this._gold = val;
   }
 

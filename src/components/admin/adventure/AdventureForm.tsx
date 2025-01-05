@@ -2,7 +2,7 @@ import {
   AdventureCreateRequest,
   AdventureDetails,
   EnemyLites,
-} from "../../../generated-sources/openapi";
+} from "../../../generated-sources/openapi/game";
 import { useTranslation } from "react-i18next";
 import { useFormik } from "formik";
 import { Box, Button, Flex, Heading, Skeleton } from "@chakra-ui/react";

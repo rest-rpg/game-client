@@ -17,7 +17,7 @@ import {
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useSkillService from "../../../services/useSkillService";
-import { ItemLitePage, PotionLite } from "../../../generated-sources/openapi";
+import { ItemLitePage, PotionLite } from "../../../generated-sources/openapi/game";
 import Pagination from "../../tables/Pagination";
 import useEquipmentService from "../../../services/useEquipmentService";
 import { useStores } from "../../../store/RootStore";
