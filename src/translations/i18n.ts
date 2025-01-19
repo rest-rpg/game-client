@@ -23,7 +23,7 @@ i18n
     console.error("Error initializing i18n:", error);
   });
 
-i18n.services.formatter?.add("DATE_HUGE", (value, lng, options) => {
+i18n.services.formatter?.add("DATE_HUGE", (value, lng) => {
   return DateTime.fromJSDate(value)
     .setLocale(lng as string)
     .toLocaleString(DateTime.DATE_HUGE);

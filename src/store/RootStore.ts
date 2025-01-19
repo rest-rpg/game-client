@@ -15,9 +15,9 @@ export default class RootStore {
   equipmentStore: EquipmentStore;
 
   constructor() {
-    this.authStore = new AuthStore(this);
+    this.authStore = new AuthStore();
     this.characterStore = new CharacterStore(this);
-    this.statisticsStore = new StatisticsStore(this);
+    this.statisticsStore = new StatisticsStore();
     this.enemyStore = new EnemyStore(this);
     this.fightStore = new FightStore(this);
     this.equipmentStore = new EquipmentStore(this);

@@ -1,12 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import { AuthResponse } from "../classes/auth/Auth";
-import RootStore from "./RootStore";
 
 export class AuthStore {
   private _username = "";
   private _accessToken = "";
   private _role = "";
-  private _rootStore: RootStore;
 
   /**
    * Getter username
@@ -62,8 +60,7 @@ export class AuthStore {
     this._role = authResponse.role;
   }
 
-  constructor(rootStore: RootStore) {
-    this._rootStore = rootStore;
+  constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
   }
 }

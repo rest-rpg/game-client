@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx";
-import RootStore from "./RootStore";
 import {
   StatisticsDetails,
   StatisticsLite,
@@ -23,7 +22,6 @@ export class StatisticsStore {
   private _dexterity = 10;
   private _constitution = 10;
   private _intelligence = 10;
-  private _rootStore: RootStore;
 
   /**
    * Getter maxHp
@@ -321,8 +319,7 @@ export class StatisticsStore {
     this.intelligence = statisticsDetails.intelligence;
   }
 
-  constructor(rootStore: RootStore) {
-    this._rootStore = rootStore;
+  constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
   }
 }
