@@ -29,7 +29,7 @@ const CreateSkill = () => {
       type: skillTypes[0],
       multiplier: 0,
       multiplierPerLevel: 0,
-      effect: "",
+      effect: undefined,
       effectDuration: 0,
       effectDurationPerLevel: 0,
       effectMultiplier: 0,
@@ -127,7 +127,7 @@ const CreateSkill = () => {
           <FormikRadioGroup
             error={errors.effect}
             touched={touched.effect}
-            value={values.effect}
+            value={values.effect ?? ""}
             handleChange={handleChange}
             radioValues={skillEffects}
             inputName="effect"

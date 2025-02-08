@@ -14,7 +14,7 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { BASE_URL } from "../api/axios";
 import useServiceHelper from "./helpers/useServiceHelper";
 
-export const THUMBNAIL_URL = BASE_URL + "/game/character/thumbnail";
+export const THUMBNAIL_URL = BASE_URL + "/game/avatars/thumbnail";
 
 const useCharacterService = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,28 +44,6 @@ const useCharacterService = () => {
         } else {
           errorToast(t("ERROR.COMMUNICATION"));
         }
-      })
-      .finally(() => setIsLoading(false));
-  };
-
-  const getArtworksEnum = async (): Promise<string[]> => {
-    setIsLoading(true);
-    const getArtworks = await api.getCharacterArtworkEnum({
-      withCredentials: true,
-    });
-
-    return getArtworks(axiosPrivate)
-      .then((response) => {
-        return response.data;
-      })
-      .catch((err: AxiosError) => {
-        if (err.response?.data) {
-          const error = err as Error;
-          errorToast(t(`ERROR.${error.response.data.message}`));
-        } else {
-          errorToast(t("ERROR.COMMUNICATION"));
-        }
-        return [""];
       })
       .finally(() => setIsLoading(false));
   };
@@ -100,7 +78,6 @@ const useCharacterService = () => {
     create,
     getUserCharacters,
     getUserCharacter,
-    getArtworksEnum,
   };
 };
 

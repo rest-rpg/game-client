@@ -21,6 +21,7 @@ import useCharacterService, {
 import { useTranslation } from "react-i18next";
 import { FormikErrors } from "formik";
 import { CreateCharacterFormData } from "./CharacterCreator";
+import { CharacterArtwork } from "../../../generated-sources/openapi/game";
 
 interface Props {
   setFieldValue: (
@@ -31,17 +32,9 @@ interface Props {
 }
 
 const ArtworkModal = ({ setFieldValue }: Props) => {
-  const [artworks, setArtworks] = useState([""]);
   const [artwork, setArtwork] = useState("");
   const characterService = useCharacterService();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    async function getArtworks() {
-      setArtworks(await characterService.getArtworksEnum());
-    }
-    getArtworks().catch((error) => console.log(error));
-  }, []);
 
   useEffect(() => {
     setFieldValue("artwork", artwork).catch((err) => console.log(err));
@@ -66,10 +59,10 @@ const ArtworkModal = ({ setFieldValue }: Props) => {
           <PopoverBody>
             <Skeleton height="40px" isLoaded={!characterService.isLoading}>
               <Grid templateColumns="repeat(6, 1fr)" gap={3}>
-                {!characterService.isLoading && artworks.map((art) => (
-                  <GridItem w="100%" border={art === artwork ? "1px": "0px"}>
+                {!characterService.isLoading && Object.values(CharacterArtwork).map((art) => (
+                  <GridItem w="100%" border={art.toLowerCase() === artwork ? "1px": "0px"}>
                     <button type="button" onClick={() => handleChangeArtwork(art)}>
-                      <Image src={`${THUMBNAIL_URL}/${art}`} />
+                      <Image src={`${THUMBNAIL_URL}/${art.toLowerCase()}.jpg`} />
                     </button>
                   </GridItem>
                 ))}
@@ -80,7 +73,7 @@ const ArtworkModal = ({ setFieldValue }: Props) => {
       </Popover>
       {artwork && (
         <Center p={3}>
-          <Image maxW="75%" src={`${THUMBNAIL_URL}/${artwork}`} />
+          <Image maxW="75%" src={`${THUMBNAIL_URL}/${artwork.toLocaleLowerCase()}.jpg`} />
         </Center>
       )}
     </Box>

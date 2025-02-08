@@ -1,8 +1,12 @@
 import { makeAutoObservable } from "mobx";
 import RootStore from "./RootStore";
 import {
+  CharacterArtwork,
+  CharacterClass,
   CharacterDetails,
   CharacterLite,
+  CharacterRace,
+  CharacterSex,
   SkillDetails,
 } from "../generated-sources/openapi/game";
 import { dateToSeconds } from "../helpers/DateHelper";
@@ -10,10 +14,10 @@ import { dateToSeconds } from "../helpers/DateHelper";
 export class CharacterStore {
   private _id = -1;
   private _name = "";
-  private _race = "";
-  private _sex = "";
-  private _characterClass = "";
-  private _artwork = "";
+  private _race: CharacterRace = CharacterRace.Dwarf;
+  private _sex: CharacterSex = CharacterSex.Female;
+  private _characterClass: CharacterClass = CharacterClass.Mage;
+  private _artwork: CharacterArtwork = CharacterArtwork.DwarfFemale1;
   private _occupationType: string | undefined = "";
   private _occupationTime = 0;
   private _skills?: Array<SkillDetails> = [];
@@ -39,7 +43,7 @@ export class CharacterStore {
     return this._race;
   }
 
-  set race(val: string) {
+  set race(val: CharacterRace) {
     this._race = val;
   }
 
@@ -47,7 +51,7 @@ export class CharacterStore {
     return this._sex;
   }
 
-  set sex(val: string) {
+  set sex(val: CharacterSex) {
     this._sex = val;
   }
 
@@ -55,7 +59,7 @@ export class CharacterStore {
     return this._characterClass;
   }
 
-  set characterClass(val: string) {
+  set characterClass(val: CharacterClass) {
     this._characterClass = val;
   }
 
@@ -63,7 +67,7 @@ export class CharacterStore {
     return this._artwork;
   }
 
-  set artwork(val: string) {
+  set artwork(val: CharacterArtwork) {
     this._artwork = val;
   }
 

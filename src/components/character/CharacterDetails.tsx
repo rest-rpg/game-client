@@ -82,7 +82,7 @@ const CharacterDetails = () => {
                 maxWidth="20vw"
                 backgroundColor="gray.700"
               >
-                <Image src={THUMBNAIL_URL + "/" + characterStore.artwork} />
+                <Image src={`${THUMBNAIL_URL}/${characterStore.artwork.toLocaleLowerCase()}.jpg`} />
               </Box>
             </Center>
           </Box>

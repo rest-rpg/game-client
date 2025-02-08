@@ -22,12 +22,7 @@ import FormikInput from "../../forms/FormikInput";
 import { useEffect } from "react";
 import ArtworkModal from "./ArtworkModal";
 
-export interface CreateCharacterFormData {
-  name: string;
-  race: string;
-  sex: string;
-  characterClass: string;
-  artwork: string;
+export interface CreateCharacterFormData extends CharacterCreateRequest {
   statistics: {
     strength: number;
     dexterity: number;
@@ -41,7 +36,7 @@ const CharacterCreator = () => {
   const { t } = useTranslation();
   const characterService = useCharacterService();
 
-  const handleSubmitFunc = async (values: CharacterCreateRequest) => {
+  const handleSubmitFunc = async (values: CreateCharacterFormData) => {
     await characterService.create(values);
   };
 

@@ -68,7 +68,7 @@ const CharactersPopover = () => {
                             {character.statistics.currentLevel}
                           </Text>
                           <Image
-                            src={`${THUMBNAIL_URL}/${character.artwork}`}
+                            src={`${THUMBNAIL_URL}/${character.artwork.toLocaleLowerCase()}.jpg`}
                           />
                         </Box>
                       </Link>
